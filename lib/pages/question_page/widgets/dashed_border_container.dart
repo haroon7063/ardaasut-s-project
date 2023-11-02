@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 class DashedBorderContainer extends StatelessWidget {
   final Widget child;
-  final Color borderColor;
   final double borderWidth;
   final double dashWidth;
   final double dashSpace;
 
   DashedBorderContainer({
     required this.child,
-    this.borderColor = Colors.black,
     this.borderWidth = 1.0,
     this.dashWidth = 5.0,
     this.dashSpace = 5.0,
@@ -19,7 +17,7 @@ class DashedBorderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPaint(
       painter: DashedBorderPainter(
-        color: borderColor,
+        color: Theme.of(context).colorScheme.outline,
         width: borderWidth,
         dashWidth: dashWidth,
         dashSpace: dashSpace,

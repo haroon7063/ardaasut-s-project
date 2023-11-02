@@ -15,11 +15,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      themeMode: ThemeMode.light,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          brightness: Brightness.light,
+          seedColor: Colors.orange,
+        ),
         useMaterial3: true,
       ),
-      home: QuestionScreen(),
+      darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.orange, brightness: Brightness.dark)),
+      home: LoginScreen(),
     );
   }
 }

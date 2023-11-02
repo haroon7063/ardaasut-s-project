@@ -13,16 +13,20 @@ class CustomStadiumButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPress,
       child: Container(
         width: double.infinity,
         height: 70,
-        decoration:
-            const ShapeDecoration(shape: StadiumBorder(), color: Colors.white),
+        decoration: ShapeDecoration(
+            shape: StadiumBorder(),
+            color: Theme.of(context).colorScheme.primary),
         child: Center(
             child: Text(
           buttonText,
-          style: Utils.mediumTextStyle,
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge!
+              .copyWith(color: Theme.of(context).colorScheme.onPrimary),
         )),
       ),
     );

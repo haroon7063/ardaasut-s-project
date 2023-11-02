@@ -1,6 +1,7 @@
 import 'package:fiverr_project_ardaasut/pages/question_page/widgets/dashed_border_container.dart';
 import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class QuestionScreen extends StatefulWidget {
@@ -64,7 +65,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple.shade100,
+      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -80,7 +81,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     Text(
                       'Introduce Yourself!',
                       style: Utils.mediumTextStyle.copyWith(
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onBackground,
                       ),
                     ),
                     Container(
@@ -91,6 +92,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                           height: 1,
                           thickness: 1.5,
                           endIndent: 50,
+                          color: Theme.of(context).colorScheme.outline,
                         ),
                       ),
                     )
@@ -106,7 +108,6 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   'Which one describes your situation best?',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
-                borderColor: Colors.white,
               ),
               SizedBox(
                 height: 40,
@@ -121,8 +122,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
                           border: Border.all(
-                            style: BorderStyle.solid,
-                          ),
+                              style: BorderStyle.solid,
+                              color: Theme.of(context).colorScheme.outline),
                         ),
                         child: Center(
                             child: Text(
@@ -144,6 +145,20 @@ class _QuestionScreenState extends State<QuestionScreen> {
               SizedBox(
                 height: 30,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  OutlinedButton.icon(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () => decrementIndex(),
+                    label: Text('Back'),
+                  ),
+                  FilledButton(
+                    onPressed: () => incrementIndex(),
+                    child: Text('Next'),
+                  )
+                ],
+              ),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: AnimatedSmoothIndicator(
@@ -153,7 +168,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   effect: SwapEffect(
                     type: SwapType.yRotation,
                     dotColor: Colors.white,
-                    activeDotColor: Colors.deepPurple.shade500,
+                    activeDotColor: Theme.of(context).colorScheme.secondary,
                   ),
                   count: 5,
                 ),
