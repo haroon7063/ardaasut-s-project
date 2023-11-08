@@ -66,7 +66,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -85,7 +85,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         color: Theme.of(context).colorScheme.onBackground,
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: double.maxFinite,
                       child: Align(
                         alignment: Alignment.centerLeft,
@@ -121,11 +121,21 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         width: MediaQuery.of(context).size.width * 0.9,
                         padding: EdgeInsets.symmetric(horizontal: 8),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(14),
-                          border: Border.all(
-                              style: BorderStyle.solid,
-                              color: Theme.of(context).colorScheme.outline),
-                        ),
+                            color: Theme.of(context).colorScheme.background,
+                            borderRadius: BorderRadius.circular(14),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 3,
+                                  spreadRadius: 2,
+                                  offset: Offset(1, 1),
+                                  color: Colors.black87),
+                              BoxShadow(
+                                  blurRadius: 3,
+                                  spreadRadius: 1,
+                                  offset: Offset(-1, -1),
+                                  color: Colors.grey.shade500)
+                            ]
+                            ),
                         child: Center(
                             child: Text(
                           '${storyData[index]['text']}',
@@ -135,7 +145,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     },
                     separatorBuilder: (context, index) {
                       return SizedBox(
-                        height: 10,
+                        height: 20,
                       );
                     },
                     itemCount: storyData.length),
@@ -150,12 +160,20 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   OutlinedButton.icon(
-                    icon: Icon(Icons.arrow_back),
+                    icon: Icon(Icons.arrow_back,
+                        color: Theme.of(context).colorScheme.onBackground),
                     onPressed: () => decrementIndex(),
-                    label: Text('Back'),
+                    label: Text(
+                      'Back',
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.onBackground),
+                    ),
                   ),
                   FilledButton(
                     onPressed: () => incrementIndex(),
+                    style: FilledButton.styleFrom(
+                        backgroundColor:
+                            Theme.of(context).colorScheme.onBackground),
                     child: Text('Next'),
                   )
                 ],

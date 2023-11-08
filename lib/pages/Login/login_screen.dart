@@ -8,13 +8,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  static final offsetTween = Tween(begin: Offset(1.0, 0.0), end: Offset.zero)
+      .chain(CurveTween(curve: Curves.easeIn));
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
@@ -25,17 +33,15 @@ class _LoginScreenState extends State<LoginScreen> {
         systemNavigationBarContrastEnforced: true,
         statusBarColor: Theme.of(context).colorScheme.secondary));
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Container(
               child: Column(
                 children: [
                   Spacer(flex: 1),
-                  Image(
-                    image: AssetImage(
-                      'assets/images/psychology.png',
-                    ),
+                  Image.asset(
+                    'assets/images/psychology.png',
                     width: 200,
                     height: 200,
                   ),
@@ -45,8 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     'Self Heal App',
                     style: Utils.mediumTextStyle.copyWith(
-                        color:
-                            Theme.of(context).colorScheme.onPrimaryContainer),
+                        color: Theme.of(context).colorScheme.onBackground),
                   ),
                   Spacer(
                     flex: 2,
@@ -64,11 +69,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                         QuestionScreen(),
                                     transitionsBuilder: (context, animation,
                                         secondaryAnimation, child) {
-                                      final offsetTween = Tween(
-                                              begin: Offset(1.0, 0.0),
-                                              end: Offset.zero)
-                                          .chain(
-                                              CurveTween(curve: Curves.easeIn));
                                       final offsetAnimation =
                                           animation.drive(offsetTween);
                                       return TweenAnimationBuilder(
