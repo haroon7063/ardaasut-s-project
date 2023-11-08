@@ -1,4 +1,7 @@
+import 'package:fiverr_project_ardaasut/pages/discover/discover_screen.dart';
 import 'package:fiverr_project_ardaasut/pages/home/home_screen.dart';
+import 'package:fiverr_project_ardaasut/pages/my_journey/my_journey_screen.dart';
+import 'package:fiverr_project_ardaasut/pages/story/story_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -22,10 +25,14 @@ class _HomePageState extends State<HomePage> {
       context,
       screens: [
         HomeScreen(),
-        Icon(Icons.ac_unit),
-        Icon(Icons.abc_sharp),
-        Icon(Icons.travel_explore)
+        DiscoverScreen(),
+        StoryScreen(),
+        MyJourneyScreen()
       ],
+      screenTransitionAnimation: ScreenTransitionAnimation(
+          duration: Duration(milliseconds: 500),
+          animateTabTransition: true,
+          curve: Curves.easeInOut),
       backgroundColor: Color(0xff23282C),
       navBarStyle: NavBarStyle.style1,
       navBarHeight: 80,
