@@ -5,12 +5,14 @@ class DashedBorderContainer extends StatelessWidget {
   final double borderWidth;
   final double dashWidth;
   final double dashSpace;
+  final double cornerRadius;
 
   DashedBorderContainer({
     required this.child,
     this.borderWidth = 1.0,
     this.dashWidth = 5.0,
     this.dashSpace = 5.0,
+    this.cornerRadius = 20.0, // Set your desired corner radius here.
   });
 
   @override
@@ -23,8 +25,10 @@ class DashedBorderContainer extends StatelessWidget {
         dashSpace: dashSpace,
       ),
       child: Container(
-        padding: EdgeInsets.all(8),
-        decoration: BoxDecoration(),
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(cornerRadius),
+        ),
         child: child,
       ),
     );

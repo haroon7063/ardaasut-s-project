@@ -1,5 +1,5 @@
 import 'package:fiverr_project_ardaasut/pages/Login/login_screen.dart';
-import 'package:fiverr_project_ardaasut/pages/home/home_page.dart';
+import 'package:fiverr_project_ardaasut/pages/tab_view/tab_Screen.dart';
 import 'package:fiverr_project_ardaasut/pages/question_page/questionScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,18 +15,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          brightness: Brightness.light,
-          seedColor: Colors.orange,
-        ),
+            seedColor: Colors.indigo, brightness: Brightness.light),
+        fontFamily: 'Rubik',
         useMaterial3: true,
       ),
       darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
           colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.orange, brightness: Brightness.dark)),
-      home: LoginScreen(),
+        seedColor: Colors.indigo,
+        brightness: Brightness.dark,
+      )),
+      home: HomePage(),
     );
   }
 }

@@ -8,13 +8,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  static final offsetTween = Tween(begin: Offset(1.0, 0.0), end: Offset.zero)
+      .chain(CurveTween(curve: Curves.easeIn));
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
@@ -25,81 +33,84 @@ class _LoginScreenState extends State<LoginScreen> {
         systemNavigationBarContrastEnforced: true,
         statusBarColor: Theme.of(context).colorScheme.secondary));
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Column(
-              children: [
-                const Spacer(flex: 1),
-                const Image(
-                  image: AssetImage(
-                    'assets/images/psychology.png',
+            child: Container(
+              child: Column(
+                children: [
+                  Spacer(flex: 1),
+                  Image(
+                    image: AssetImage(
+                      'assets/images/psychology.png',
+                    ),
+                    width: 200,
+                    height: 200,
                   ),
-                  width: 200,
-                  height: 200,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Self Heal App',
-                  style: Utils.mediumTextStyle.copyWith(
-                      color: Theme.of(context).colorScheme.onPrimaryContainer),
-                ),
-                const Spacer(
-                  flex: 2,
-                ),
-                Column(
-                  children: [
-                    CustomStadiumButton(
-                      onPress: () => Navigator.push(
-                          context,
-                          Theme.of(context).platform == TargetPlatform.android
-                              ? PageRouteBuilder(
-                                  barrierDismissible: true,
-                                  pageBuilder: (context, animation,
-                                          secondaryAnimation) =>
-                                      const QuestionScreen(),
-                                  transitionsBuilder: (context, animation,
-                                      secondaryAnimation, child) {
-                                    final offsetTween = Tween(
-                                            begin: const Offset(1.0, 0.0),
-                                            end: Offset.zero)
-                                        .chain(
-                                            CurveTween(curve: Curves.easeIn));
-                                    final offsetAnimation =
-                                        animation.drive(offsetTween);
-                                    return TweenAnimationBuilder(
-                                      tween: Tween(
-                                          begin: const Offset(1.0, 0.0),
-                                          end: const Offset(0.0, 0.0)),
-                                      duration: const Duration(seconds: 2),
-                                      child: child,
-                                      builder: (context, value, child) =>
-                                          SlideTransition(
-                                        position: offsetAnimation,
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Self Heal App',
+                    style: Utils.mediumTextStyle.copyWith(
+                        color:
+                            Theme.of(context).colorScheme.onPrimaryContainer),
+                  ),
+                  Spacer(
+                    flex: 2,
+                  ),
+                  Column(
+                    children: [
+                      CustomStadiumButton(
+                        onPress: () => Navigator.push(
+                            context,
+                            Theme.of(context).platform == TargetPlatform.android
+                                ? PageRouteBuilder(
+                                    barrierDismissible: true,
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        QuestionScreen(),
+                                    transitionsBuilder: (context, animation,
+                                        secondaryAnimation, child) {
+                                      final offsetTween = Tween(
+                                              begin: Offset(1.0, 0.0),
+                                              end: Offset.zero)
+                                          .chain(
+                                              CurveTween(curve: Curves.easeIn));
+                                      final offsetAnimation =
+                                          animation.drive(offsetTween);
+                                      return TweenAnimationBuilder(
+                                        tween: Tween(
+                                            begin: Offset(1.0, 0.0),
+                                            end: Offset(0.0, 0.0)),
+                                        duration: Duration(seconds: 2),
                                         child: child,
-                                      ),
-                                    );
-                                  },
-                                )
-                              : CupertinoPageRoute(
-                                  builder: (context) {
-                                    return const QuestionScreen();
-                                  },
-                                )),
-                      buttonText: 'Login',
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    CustomStadiumButton(
-                      onPress: () {},
-                      buttonText: 'SignUp',
-                    )
-                  ],
-                )
-              ],
+                                        builder: (context, value, child) =>
+                                            SlideTransition(
+                                          position: offsetAnimation,
+                                          child: child,
+                                        ),
+                                      );
+                                    },
+                                  )
+                                : CupertinoPageRoute(
+                                    builder: (context) {
+                                      return QuestionScreen();
+                                    },
+                                  )),
+                        buttonText: 'Login',
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      CustomStadiumButton(
+                        onPress: () {},
+                        buttonText: 'SignUp',
+                      )
+                    ],
+                  )
+                ],
+              ),
             )));
   }
 }

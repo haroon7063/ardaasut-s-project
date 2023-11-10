@@ -19,14 +19,14 @@ class CustomStadiumButton extends StatelessWidget {
         height: 70,
         decoration: ShapeDecoration(
             shape: StadiumBorder(),
-            color: Theme.of(context).colorScheme.primary),
+            color: Theme.of(context).colorScheme.onBackground),
         child: Center(
             child: Text(
           buttonText,
           style: Theme.of(context)
               .textTheme
               .titleLarge!
-              .copyWith(color: Theme.of(context).colorScheme.onPrimary),
+              .copyWith(color: Theme.of(context).colorScheme.onSecondary),
         )),
       ),
     );
