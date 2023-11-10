@@ -32,41 +32,35 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff23282C),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              width: 40,
-              height: 40,
-              margin: EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                  color: Color(0xff23282C),
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 1,
-                        offset: Offset(-1, -1),
-                        color: Colors.grey),
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 3,
-                        offset: Offset(1, 1),
-                        color: Color(0xff14141d))
-                  ]),
-              child: Icon(Icons.person_3_outlined),
-            ),
-          ),
-          SizedBox(
-            width: 10,
-          )
-        ],
-      ),
       body: Column(
         children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                width: 40,
+                height: 40,
+                margin: EdgeInsets.only(top: 16, right: 14),
+                decoration: BoxDecoration(
+                    color: Color(0xff23282C),
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 3,
+                          spreadRadius: 1,
+                          offset: Offset(-1, -1),
+                          color: Colors.grey),
+                      BoxShadow(
+                          blurRadius: 3,
+                          spreadRadius: 3,
+                          offset: Offset(1, 1),
+                          color: Color(0xff14141d))
+                    ]),
+                child: Icon(Icons.person_3_outlined),
+              ),
+            ),
+          ),
           Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -127,6 +121,13 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
           SizedBox(
             height: 10,
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Text(
+              'You have Accomplished so Far \n Never Understimate your Work.',
+              style: TextStyle(fontFamily: 'Rubik_Regular', fontSize: 20),
+            ),
+          ),
           Expanded(
               child: Stepper(
             currentStep: _index,
@@ -151,7 +152,10 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
             },
             steps: [
               Step(
-                  title: Text('Building RoadMap'),
+                  title: Text(
+                    'Building RoadMap',
+                    style: TextStyle(fontFamily: 'Rubik_italic'),
+                  ),
                   isActive: true,
                   state: StepState.indexed,
                   content: Container(
@@ -219,7 +223,10 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     ),
                   )),
               Step(
-                  title: Text('Building RoadMap'),
+                  title: Text(
+                    'Building RoadMap',
+                    style: TextStyle(fontFamily: 'Rubik_italic'),
+                  ),
                   isActive: false,
                   state: StepState.indexed,
                   content: Container(
@@ -287,7 +294,10 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     ),
                   )),
               Step(
-                  title: Text('Building RoadMap'),
+                  title: Text(
+                    'Building RoadMap',
+                    style: TextStyle(fontFamily: 'Rubik_italic'),
+                  ),
                   isActive: false,
                   state: StepState.indexed,
                   content: Container(
@@ -355,7 +365,10 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     ),
                   )),
               Step(
-                  title: Text('Building RoadMap'),
+                  title: Text(
+                    'Building RoadMap',
+                    style: TextStyle(fontFamily: 'Rubik_italic'),
+                  ),
                   isActive: false,
                   state: StepState.indexed,
                   content: Container(

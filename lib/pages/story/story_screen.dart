@@ -12,41 +12,35 @@ class _StoryScreenState extends State<StoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff23282C),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              width: 40,
-              height: 40,
-              margin: EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                  color: Color(0xff23282C),
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 1,
-                        offset: Offset(-1, -1),
-                        color: Colors.grey),
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 3,
-                        offset: Offset(1, 1),
-                        color: Color(0xff14141d))
-                  ]),
-              child: Icon(Icons.person_3_outlined),
-            ),
-          ),
-          SizedBox(
-            width: 10,
-          )
-        ],
-      ),
       body: Column(
         children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                width: 40,
+                height: 40,
+                margin: EdgeInsets.only(top: 16, right: 14),
+                decoration: BoxDecoration(
+                    color: Color(0xff23282C),
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 3,
+                          spreadRadius: 1,
+                          offset: Offset(-1, -1),
+                          color: Colors.grey),
+                      BoxShadow(
+                          blurRadius: 3,
+                          spreadRadius: 3,
+                          offset: Offset(1, 1),
+                          color: Color(0xff14141d))
+                    ]),
+                child: Icon(Icons.person_3_outlined),
+              ),
+            ),
+          ),
           Divider(),
           Center(
               child: Text(
