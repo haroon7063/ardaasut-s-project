@@ -1,3 +1,4 @@
+import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
@@ -12,7 +13,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff23282C),
+      backgroundColor: Utils.backgroundColor,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -24,7 +25,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               height: 40,
               margin: const EdgeInsets.only(top: 10),
               decoration: const BoxDecoration(
-                  color: Color(0xff23282C),
+                  color: Utils.backgroundColor,
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
@@ -84,7 +85,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                         margin: const EdgeInsets.only(
                             left: 24, top: 10, bottom: 10),
                         decoration: BoxDecoration(
-                          color: const Color(0xff23282C),
+                          color: Utils.backgroundColor,
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             const BoxShadow(
@@ -143,14 +144,15 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     margin:
                         const EdgeInsets.only(left: 24, top: 10, bottom: 10),
                     decoration: BoxDecoration(
-                        color: const Color(0xff23282C),
+                        color: Utils.backgroundColor,
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage(
                                 'assets/images/nature${index + 1}.jpg')),
-                        gradient: RadialGradient(
-                            radius: 1.5,
-                            colors: [Colors.grey.shade700, Color(0xff23282C)]),
+                        gradient: RadialGradient(radius: 1.5, colors: [
+                          Colors.grey.shade700,
+                          Utils.backgroundColor
+                        ]),
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
@@ -200,7 +202,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     margin:
                         const EdgeInsets.only(left: 24, top: 10, bottom: 10),
                     decoration: const BoxDecoration(
-                        color: Color(0xff23282C),
+                        color: Utils.backgroundColor,
                         boxShadow: [
                           BoxShadow(
                               blurRadius: 1,

@@ -1,3 +1,4 @@
+import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class StoryScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class _StoryScreenState extends State<StoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff23282C),
+      backgroundColor: Utils.backgroundColor,
       body: Column(
         children: [
           Align(
@@ -23,7 +24,7 @@ class _StoryScreenState extends State<StoryScreen> {
                 height: 40,
                 margin: EdgeInsets.only(top: 16, right: 14),
                 decoration: BoxDecoration(
-                    color: Color(0xff23282C),
+                    color: Utils.backgroundColor,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
@@ -59,7 +60,7 @@ class _StoryScreenState extends State<StoryScreen> {
               margin: EdgeInsets.all(30),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  color: Color(0xff23282C),
+                  color: Utils.backgroundColor,
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -103,7 +104,7 @@ class _StoryScreenState extends State<StoryScreen> {
                 vertical: 15,
               ),
               decoration: BoxDecoration(
-                  color: Color(0xff23282C),
+                  color: Utils.backgroundColor,
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(

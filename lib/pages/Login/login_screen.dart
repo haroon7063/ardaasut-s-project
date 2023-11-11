@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:fiverr_project_ardaasut/pages/Login/widgets/custom_stadium_button.dart';
 import 'package:fiverr_project_ardaasut/pages/question_page/questionScreen.dart';
 import 'package:fiverr_project_ardaasut/utils/constants.dart';
@@ -15,8 +13,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  static final offsetTween = Tween(begin: Offset(1.0, 0.0), end: Offset.zero)
-      .chain(CurveTween(curve: Curves.easeIn));
+  static final offsetTween =
+      Tween(begin: const Offset(1.0, 0.0), end: Offset.zero)
+          .chain(CurveTween(curve: Curves.easeIn));
 
   @override
   void initState() {
@@ -39,15 +38,15 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Container(
               child: Column(
                 children: [
-                  Spacer(flex: 1),
-                  Image(
+                  const Spacer(flex: 1),
+                  const Image(
                     image: AssetImage(
                       'assets/images/psychology.png',
                     ),
                     width: 200,
                     height: 200,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -56,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color:
                             Theme.of(context).colorScheme.onPrimaryContainer),
                   ),
-                  Spacer(
+                  const Spacer(
                     flex: 2,
                   ),
                   Column(
@@ -69,11 +68,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                     barrierDismissible: true,
                                     pageBuilder: (context, animation,
                                             secondaryAnimation) =>
-                                        QuestionScreen(),
+                                        const QuestionScreen(),
                                     transitionsBuilder: (context, animation,
                                         secondaryAnimation, child) {
                                       final offsetTween = Tween(
-                                              begin: Offset(1.0, 0.0),
+                                              begin: const Offset(1.0, 0.0),
                                               end: Offset.zero)
                                           .chain(
                                               CurveTween(curve: Curves.easeIn));
@@ -81,9 +80,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                           animation.drive(offsetTween);
                                       return TweenAnimationBuilder(
                                         tween: Tween(
-                                            begin: Offset(1.0, 0.0),
-                                            end: Offset(0.0, 0.0)),
-                                        duration: Duration(seconds: 2),
+                                            begin: const Offset(1.0, 0.0),
+                                            end: const Offset(0.0, 0.0)),
+                                        duration: const Duration(seconds: 2),
                                         child: child,
                                         builder: (context, value, child) =>
                                             SlideTransition(
@@ -95,12 +94,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   )
                                 : CupertinoPageRoute(
                                     builder: (context) {
-                                      return QuestionScreen();
+                                      return const QuestionScreen();
                                     },
                                   )),
                         buttonText: 'Login',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 12,
                       ),
                       CustomStadiumButton(

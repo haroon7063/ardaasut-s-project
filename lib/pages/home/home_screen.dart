@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:dotted_line/dotted_line.dart';
+import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -40,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff23282C),
+      backgroundColor: Utils.backgroundColor,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
@@ -55,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 40,
                   margin: EdgeInsets.only(top: 16, right: 14),
                   decoration: BoxDecoration(
-                      color: Color(0xff23282C),
+                      color: Utils.backgroundColor,
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -93,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     margin: EdgeInsets.all(10),
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                        color: Color(0xff23282C),
+                        color: Utils.backgroundColor,
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: dates[index] == now
                             ? [
@@ -140,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Color(0xff23282C),
+                  color: Utils.backgroundColor,
                   boxShadow: [
                     BoxShadow(
                         blurRadius: 3,

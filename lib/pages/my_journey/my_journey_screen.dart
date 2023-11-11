@@ -1,3 +1,4 @@
+import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -31,7 +32,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff23282C),
+      backgroundColor: Utils.backgroundColor,
       body: Column(
         children: [
           Align(
@@ -43,7 +44,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                 height: 40,
                 margin: EdgeInsets.only(top: 16, right: 14),
                 decoration: BoxDecoration(
-                    color: Color(0xff23282C),
+                    color: Utils.backgroundColor,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
@@ -85,7 +86,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                      color: Color(0xff23282C),
+                      color: Utils.backgroundColor,
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: dates[index] == now
                           ? [
@@ -161,7 +162,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                   content: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
                     decoration: BoxDecoration(
-                        color: Color(0xff23282C),
+                        color: Utils.backgroundColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
                             bottomRight: Radius.circular(20),
@@ -232,7 +233,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                   content: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
                     decoration: BoxDecoration(
-                        color: Color(0xff23282C),
+                        color: Utils.backgroundColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
                             bottomRight: Radius.circular(20),
@@ -303,7 +304,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                   content: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
                     decoration: BoxDecoration(
-                        color: Color(0xff23282C),
+                        color: Utils.backgroundColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
                             bottomRight: Radius.circular(20),
@@ -374,7 +375,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                   content: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
                     decoration: BoxDecoration(
-                        color: Color(0xff23282C),
+                        color: Utils.backgroundColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
                             bottomRight: Radius.circular(20),
@@ -442,7 +443,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                 width: 20,
                 height: 20,
                 decoration: BoxDecoration(
-                  color: Color(0xff23282C),
+                  color: Utils.backgroundColor,
                   shape: BoxShape.circle,
                 ),
                 child: Text(
