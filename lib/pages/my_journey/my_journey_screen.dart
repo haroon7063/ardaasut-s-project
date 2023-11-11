@@ -18,6 +18,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
   List<DateTime> dates = [];
   int _index = 0;
   bool checkValue = false;
+  static List<bool> _completed = [false, false, false, false];
 
   @override
   void initState() {
@@ -42,8 +43,8 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
               child: Container(
                 width: 40,
                 height: 40,
-                margin: EdgeInsets.only(top: 16, right: 14),
-                decoration: BoxDecoration(
+                margin: const EdgeInsets.only(top: 16, right: 14),
+                decoration: const BoxDecoration(
                     color: Utils.backgroundColor,
                     shape: BoxShape.circle,
                     boxShadow: [
@@ -58,14 +59,14 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                           offset: Offset(1, 1),
                           color: Color(0xff14141d))
                     ]),
-                child: Icon(Icons.person_3_outlined),
+                child: const Icon(Icons.person_3_outlined),
               ),
             ),
           ),
-          Align(
+          const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: EdgeInsets.only(left: 16.0),
                 child: Text(
                   'My Journey',
                   style: TextStyle(
@@ -78,24 +79,24 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
             height: 70,
             child: ListView.builder(
               itemCount: dates.length,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Container(
                   width: 40,
-                  margin: EdgeInsets.all(10),
-                  padding: EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       color: Utils.backgroundColor,
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: dates[index] == now
                           ? [
-                              BoxShadow(
+                              const BoxShadow(
                                   blurRadius: 3,
                                   spreadRadius: 1,
                                   offset: Offset(-1, -1),
                                   color: Colors.grey),
-                              BoxShadow(
+                              const BoxShadow(
                                   blurRadius: 3,
                                   spreadRadius: 3,
                                   offset: Offset(1, 1),
@@ -106,11 +107,11 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     children: [
                       Text(
                         dayFormat.format(dates[index]),
-                        style: TextStyle(fontFamily: 'Rubik_Regular'),
+                        style: const TextStyle(fontFamily: 'Rubik_Regular'),
                       ),
                       Text(
                         format.format(dates[index]),
-                        style: TextStyle(fontFamily: 'Rubik_Regular'),
+                        style: const TextStyle(fontFamily: 'Rubik_Regular'),
                       ),
                     ],
                   ),
@@ -118,12 +119,12 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
               },
             ),
           ),
-          Divider(),
-          SizedBox(
+          const Divider(),
+          const SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: Text(
               'You have Accomplished so Far \n Never Understimate your Work.',
               style: TextStyle(fontFamily: 'Rubik_Regular', fontSize: 20),
@@ -136,14 +137,23 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
               if (_index > 0) {
                 setState(() {
                   _index -= 1;
+                  _completed[_index - 1] = false;
                 });
               }
             },
             onStepContinue: () {
-              if (_index <= 0) {
+              if (_index < 3) {
                 setState(() {
                   _index += 1;
+                  _completed[_index - 1] = true;
                 });
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  shape: StadiumBorder(),
+                  duration: Duration(seconds: 1),
+                  backgroundColor: Colors.grey,
+                  content: Text('You are all Done. Very Good    🙌'),
+                ));
               }
             },
             onStepTapped: (int index) {
@@ -153,15 +163,15 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
             },
             steps: [
               Step(
-                  title: Text(
+                  title: const Text(
                     'Building RoadMap',
                     style: TextStyle(fontFamily: 'Rubik_italic'),
                   ),
-                  isActive: true,
+                  isActive: _completed[0],
                   state: StepState.indexed,
                   content: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Utils.backgroundColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
@@ -182,35 +192,36 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        DecoratedBox(
+                        const DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(20))),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Text(
                                 'Wed 08',
                                 style: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'Rubik_Regular'),
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(20)))),
-                        SizedBox(
+                            )),
+                        const SizedBox(
                           height: 10,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8.0, left: 10, right: 10),
+                        const Padding(
+                          padding:
+                              EdgeInsets.only(top: 8.0, left: 10, right: 10),
                           child: Text('Building our roadmap for flutter app'),
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             Checkbox(
                               value: checkValue,
                               checkColor: Colors.black87,
-                              fillColor: MaterialStatePropertyAll(Colors.grey),
+                              fillColor:
+                                  const MaterialStatePropertyAll(Colors.grey),
                               activeColor: Colors.grey.shade900,
                               onChanged: (value) {
                                 setState(() {
@@ -224,15 +235,15 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     ),
                   )),
               Step(
-                  title: Text(
+                  title: const Text(
                     'Building RoadMap',
                     style: TextStyle(fontFamily: 'Rubik_italic'),
                   ),
-                  isActive: false,
+                  isActive: _completed[1],
                   state: StepState.indexed,
                   content: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Utils.backgroundColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
@@ -253,9 +264,9 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        DecoratedBox(
+                        const DecoratedBox(
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Text(
                                 'Thu 09',
                                 style: TextStyle(
@@ -267,21 +278,22 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                                 color: Colors.grey,
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(20)))),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8.0, left: 10, right: 10),
+                        const Padding(
+                          padding:
+                              EdgeInsets.only(top: 8.0, left: 10, right: 10),
                           child: Text('Building our roadmap for flutter app'),
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             Checkbox(
                               value: checkValue,
                               checkColor: Colors.black87,
-                              fillColor: MaterialStatePropertyAll(Colors.grey),
+                              fillColor:
+                                  const MaterialStatePropertyAll(Colors.grey),
                               activeColor: Colors.grey.shade900,
                               onChanged: (value) {
                                 setState(() {
@@ -295,15 +307,15 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     ),
                   )),
               Step(
-                  title: Text(
+                  title: const Text(
                     'Building RoadMap',
                     style: TextStyle(fontFamily: 'Rubik_italic'),
                   ),
-                  isActive: false,
+                  isActive: _completed[2],
                   state: StepState.indexed,
                   content: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Utils.backgroundColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
@@ -324,9 +336,9 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        DecoratedBox(
+                        const DecoratedBox(
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Text(
                                 'Fri 10',
                                 style: TextStyle(
@@ -338,21 +350,22 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                                 color: Colors.grey,
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(20)))),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8.0, left: 10, right: 10),
+                        const Padding(
+                          padding:
+                              EdgeInsets.only(top: 8.0, left: 10, right: 10),
                           child: Text('Building our roadmap for flutter app'),
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             Checkbox(
                               value: checkValue,
                               checkColor: Colors.black87,
-                              fillColor: MaterialStatePropertyAll(Colors.grey),
+                              fillColor:
+                                  const MaterialStatePropertyAll(Colors.grey),
                               activeColor: Colors.grey.shade900,
                               onChanged: (value) {
                                 setState(() {
@@ -366,15 +379,15 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     ),
                   )),
               Step(
-                  title: Text(
+                  title: const Text(
                     'Building RoadMap',
                     style: TextStyle(fontFamily: 'Rubik_italic'),
                   ),
-                  isActive: false,
+                  isActive: _completed[3],
                   state: StepState.indexed,
                   content: Container(
                     width: MediaQuery.of(context).size.width * 0.7,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Utils.backgroundColor,
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(20),
@@ -395,35 +408,36 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        DecoratedBox(
+                        const DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(20))),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Text(
                                 'Sat 11',
                                 style: TextStyle(
                                     color: Colors.black87,
                                     fontFamily: 'Rubik_Regular'),
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(20)))),
-                        SizedBox(
+                            )),
+                        const SizedBox(
                           height: 10,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8.0, left: 10, right: 10),
+                        const Padding(
+                          padding:
+                              EdgeInsets.only(top: 8.0, left: 10, right: 10),
                           child: Text('Building our roadmap for flutter app'),
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           children: [
                             Checkbox(
                               value: checkValue,
                               checkColor: Colors.black87,
-                              fillColor: MaterialStatePropertyAll(Colors.grey),
+                              fillColor:
+                                  const MaterialStatePropertyAll(Colors.grey),
                               activeColor: Colors.grey.shade900,
                               onChanged: (value) {
                                 setState(() {
@@ -442,14 +456,14 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
               return Container(
                 width: 20,
                 height: 20,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Utils.backgroundColor,
                   shape: BoxShape.circle,
                 ),
                 child: Text(
                   stepIndex.toString(),
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey),
                 ),
               );
             },

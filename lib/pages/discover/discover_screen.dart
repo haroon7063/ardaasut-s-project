@@ -14,41 +14,35 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Utils.backgroundColor,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              width: 40,
-              height: 40,
-              margin: const EdgeInsets.only(top: 10),
-              decoration: const BoxDecoration(
-                  color: Utils.backgroundColor,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 1,
-                        offset: Offset(-1, -1),
-                        color: Colors.grey),
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 3,
-                        offset: Offset(1, 1),
-                        color: Color(0xff14141d))
-                  ]),
-              child: const Icon(Icons.person_3_outlined),
-            ),
-          ),
-          const SizedBox(
-            width: 10,
-          )
-        ],
-      ),
       body: ListView(
         children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                width: 40,
+                height: 40,
+                margin: EdgeInsets.only(top: 16, right: 14),
+                decoration: BoxDecoration(
+                    color: Utils.backgroundColor,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 3,
+                          spreadRadius: 1,
+                          offset: Offset(-1, -1),
+                          color: Colors.grey),
+                      BoxShadow(
+                          blurRadius: 3,
+                          spreadRadius: 3,
+                          offset: Offset(1, 1),
+                          color: Color(0xff14141d))
+                    ]),
+                child: Icon(Icons.person_3_outlined),
+              ),
+            ),
+          ),
           const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -87,24 +81,24 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                         decoration: BoxDecoration(
                           color: Utils.backgroundColor,
                           borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            const BoxShadow(
+                          boxShadow: const [
+                            BoxShadow(
                                 blurRadius: 3,
                                 spreadRadius: 1,
                                 offset: Offset(-1, -1),
                                 color: Colors.grey),
-                            const BoxShadow(
+                            BoxShadow(
                                 blurRadius: 3,
                                 spreadRadius: 3,
                                 offset: Offset(1, 1),
                                 color: Color(0xff14141d))
                           ],
                         ),
-                        child: Column(
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Focus Path'),
-                            const Divider(),
+                            Text('Focus Path'),
+                            Divider(),
                             Wrap(
                               direction: Axis.horizontal,
                               children: [

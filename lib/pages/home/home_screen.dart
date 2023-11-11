@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Utils.backgroundColor,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -52,8 +52,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Container(
                   width: 40,
                   height: 40,
-                  margin: EdgeInsets.only(top: 16, right: 14),
-                  decoration: BoxDecoration(
+                  margin: const EdgeInsets.only(top: 16, right: 14),
+                  decoration: const BoxDecoration(
                       color: Utils.backgroundColor,
                       shape: BoxShape.circle,
                       boxShadow: [
@@ -68,11 +68,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             offset: Offset(1, 1),
                             color: Color(0xff14141d))
                       ]),
-                  child: Icon(Icons.person_3_outlined),
+                  child: const Icon(Icons.person_3_outlined),
                 ),
               ),
             ),
-            Center(
+            const Center(
                 child: Text(
               'Good Morning Ardaa',
               style: TextStyle(
@@ -84,24 +84,24 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 70,
               child: ListView.builder(
                 itemCount: dates.length,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
                     width: 40,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(5),
+                    margin: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         color: Utils.backgroundColor,
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: dates[index] == now
                             ? [
-                                BoxShadow(
+                                const BoxShadow(
                                     blurRadius: 3,
                                     spreadRadius: 1,
                                     offset: Offset(-1, -1),
                                     color: Colors.grey),
-                                BoxShadow(
+                                const BoxShadow(
                                     blurRadius: 3,
                                     spreadRadius: 3,
                                     offset: Offset(1, 1),
@@ -112,11 +112,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Text(
                           dayFormat.format(dates[index]),
-                          style: TextStyle(fontFamily: 'Rubik_Regular'),
+                          style: const TextStyle(fontFamily: 'Rubik_Regular'),
                         ),
                         Text(
                           format.format(dates[index]),
-                          style: TextStyle(fontFamily: 'Rubik_Regular'),
+                          style: const TextStyle(fontFamily: 'Rubik_Regular'),
                         ),
                       ],
                     ),
@@ -124,23 +124,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            Divider(),
-            Text(
+            const Divider(),
+            const Text(
               'Remember Your Goal:',
               style: TextStyle(
                 fontFamily: 'Rubik_SemiBold',
                 fontSize: 16,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Utils.backgroundColor,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         blurRadius: 3,
                         spreadRadius: 1,
@@ -152,26 +152,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         offset: Offset(1, 1),
                         color: Color(0xff14141d))
                   ]),
-              child: Text(
+              child: const Text(
                 'Become a Billionaire',
                 style: TextStyle(fontSize: 25, fontFamily: 'Rubik_Regular'),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Divider(),
-            SizedBox(
+            const Divider(),
+            const SizedBox(
               height: 20,
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.8,
               height: 150,
-              padding: EdgeInsets.only(left: 20, bottom: 20),
+              padding: const EdgeInsets.only(left: 20, bottom: 20),
               decoration: BoxDecoration(
-                  color: Color(0xff2f3438),
+                  color: const Color(0xff2f3438),
                   borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         blurRadius: 3,
                         spreadRadius: 1,
@@ -201,11 +201,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     top: -4,
                     child: DecoratedBox(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(30)),
-                            color: Color(0xff0d0f12).withOpacity(0.5)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                            color: const Color(0xff0d0f12).withOpacity(0.5)),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'lorem ipsum',
                             style: TextStyle(fontFamily: 'Rubik_italic'),
@@ -218,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Program: or Remember',
                           style: TextStyle(
                               fontFamily: 'Rubik_Regular_Bold',
@@ -226,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 16,
                               color: Colors.white70),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         RichText(
@@ -252,7 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         RichText(
@@ -278,7 +278,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         RichText(
@@ -310,21 +310,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Divider(),
-            SizedBox(
+            const Divider(),
+            const SizedBox(
               height: 20,
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.8,
               height: 150,
-              padding: EdgeInsets.only(left: 20, bottom: 20),
+              padding: const EdgeInsets.only(left: 20, bottom: 20),
               decoration: BoxDecoration(
-                  color: Color(0xff2f3438),
+                  color: const Color(0xff2f3438),
                   borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         blurRadius: 3,
                         spreadRadius: 1,
@@ -355,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         RichText(
@@ -381,7 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         RichText(
@@ -407,7 +407,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         RichText(
@@ -439,7 +439,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             DottedLine(
@@ -447,28 +447,28 @@ class _HomeScreenState extends State<HomeScreen> {
               direction: Axis.horizontal,
               dashColor: Colors.grey.withOpacity(0.7),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
               height: 135,
               child: ListView.builder(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: data.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Container(
                     width: 100,
                     // height: 140,
-                    margin: EdgeInsets.only(left: 20),
-                    padding: EdgeInsets.all(10),
+                    margin: const EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage(
                               'assets/images/nature${index + 1}.jpg',
                             )),
-                        color: Color(0xff2f3438),
+                        color: const Color(0xff2f3438),
                         borderRadius: BorderRadius.circular(12)),
                     child: Center(
                       child: Wrap(direction: Axis.horizontal, children: [

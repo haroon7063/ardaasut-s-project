@@ -1,6 +1,4 @@
 import 'package:fiverr_project_ardaasut/pages/Login/login_screen.dart';
-import 'package:fiverr_project_ardaasut/pages/tab_view/tab_Screen.dart';
-import 'package:fiverr_project_ardaasut/pages/question_page/questionScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,7 +25,7 @@ class MyApp extends StatelessWidget {
         seedColor: Colors.indigo,
         brightness: Brightness.dark,
       )),
-      home: HomePage(),
+      home: LoginScreen(),
     );
   }
 }

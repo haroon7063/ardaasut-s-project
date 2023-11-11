@@ -1,9 +1,9 @@
-import 'package:fiverr_project_ardaasut/pages/Login/widgets/custom_stadium_button.dart';
-import 'package:fiverr_project_ardaasut/pages/question_page/questionScreen.dart';
-import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../question_page/question_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key});
@@ -13,103 +13,87 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  static final offsetTween =
-      Tween(begin: const Offset(1.0, 0.0), end: Offset.zero)
-          .chain(CurveTween(curve: Curves.easeIn));
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-        systemNavigationBarColor: Theme.of(context).colorScheme.secondary,
-        systemNavigationBarDividerColor:
-            Theme.of(context).colorScheme.onSecondary,
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarContrastEnforced: true,
         statusBarColor: Theme.of(context).colorScheme.secondary));
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Container(
-              child: Column(
-                children: [
-                  const Spacer(flex: 1),
-                  const Image(
-                    image: AssetImage(
-                      'assets/images/psychology.png',
-                    ),
-                    width: 200,
-                    height: 200,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Self Heal App',
-                    style: Utils.mediumTextStyle.copyWith(
-                        color:
-                            Theme.of(context).colorScheme.onPrimaryContainer),
-                  ),
-                  const Spacer(
-                    flex: 2,
-                  ),
-                  Column(
+      body: Stack(
+        children: [
+          Positioned.fill(
+              child: Image.asset(
+            'assets/images/login_page.jpg',
+            fit: BoxFit.cover,
+          )),
+          Positioned(
+            bottom: 50,
+            right: 20,
+            left: 20,
+            child: GestureDetector(
+              onTap: () => Navigator.push(
+                  context,
+                  Theme.of(context).platform == TargetPlatform.android
+                      ? PageRouteBuilder(
+                          barrierDismissible: true,
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  QuestionScreen(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            final offsetTween = Tween(
+                                    begin: const Offset(1.0, 0.0),
+                                    end: Offset.zero)
+                                .chain(CurveTween(curve: Curves.easeIn));
+                            final offsetAnimation =
+                                animation.drive(offsetTween);
+                            return TweenAnimationBuilder(
+                              tween: Tween(
+                                  begin: const Offset(1.0, 0.0),
+                                  end: const Offset(0.0, 0.0)),
+                              duration: const Duration(seconds: 2),
+                              child: child,
+                              builder: (context, value, child) =>
+                                  SlideTransition(
+                                position: offsetAnimation,
+                                child: child,
+                              ),
+                            );
+                          },
+                        )
+                      : CupertinoPageRoute(
+                          builder: (context) {
+                            return QuestionScreen();
+                          },
+                        )),
+              child: BackdropFilter(
+                filter: ColorFilter.mode(Colors.white, BlendMode.saturation),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
                     children: [
-                      CustomStadiumButton(
-                        onPress: () => Navigator.push(
-                            context,
-                            Theme.of(context).platform == TargetPlatform.android
-                                ? PageRouteBuilder(
-                                    barrierDismissible: true,
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        const QuestionScreen(),
-                                    transitionsBuilder: (context, animation,
-                                        secondaryAnimation, child) {
-                                      final offsetTween = Tween(
-                                              begin: const Offset(1.0, 0.0),
-                                              end: Offset.zero)
-                                          .chain(
-                                              CurveTween(curve: Curves.easeIn));
-                                      final offsetAnimation =
-                                          animation.drive(offsetTween);
-                                      return TweenAnimationBuilder(
-                                        tween: Tween(
-                                            begin: const Offset(1.0, 0.0),
-                                            end: const Offset(0.0, 0.0)),
-                                        duration: const Duration(seconds: 2),
-                                        child: child,
-                                        builder: (context, value, child) =>
-                                            SlideTransition(
-                                          position: offsetAnimation,
-                                          child: child,
-                                        ),
-                                      );
-                                    },
-                                  )
-                                : CupertinoPageRoute(
-                                    builder: (context) {
-                                      return const QuestionScreen();
-                                    },
-                                  )),
-                        buttonText: 'Login',
+                      SvgPicture.asset('assets/images/google.svg'),
+                      SizedBox(
+                        width: 20,
                       ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      CustomStadiumButton(
-                        onPress: () {},
-                        buttonText: 'SignUp',
+                      Text(
+                        'Sign In with Google',
+                        style: TextStyle(
+                            fontFamily: 'Rubik_Medium', color: Colors.black),
                       )
                     ],
-                  )
-                ],
+                  ),
+                ),
               ),
-            )));
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

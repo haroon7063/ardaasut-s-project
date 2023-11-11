@@ -1,4 +1,3 @@
-import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomStadiumButton extends StatelessWidget {
@@ -17,16 +16,23 @@ class CustomStadiumButton extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 70,
-        decoration: ShapeDecoration(
-            shape: StadiumBorder(),
-            color: Theme.of(context).colorScheme.onBackground),
+        decoration: const ShapeDecoration(shadows: [
+          BoxShadow(
+              blurRadius: 3,
+              spreadRadius: 3,
+              offset: Offset(-1, -1),
+              color: Colors.grey),
+          BoxShadow(
+              blurRadius: 3,
+              spreadRadius: 3,
+              offset: Offset(1, 1),
+              color: Color(0xff14141d))
+        ], shape: StadiumBorder(), color: Colors.grey),
         child: Center(
             child: Text(
           buttonText,
-          style: Theme.of(context)
-              .textTheme
-              .titleLarge!
-              .copyWith(color: Theme.of(context).colorScheme.onSecondary),
+          style: const TextStyle(
+              fontFamily: 'Rubik_Medium', fontSize: 25, color: Colors.black),
         )),
       ),
     );
