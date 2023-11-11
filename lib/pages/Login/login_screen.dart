@@ -40,8 +40,10 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 children: [
                   Spacer(flex: 1),
-                  Image.asset(
-                    'assets/images/psychology.png',
+                  Image(
+                    image: AssetImage(
+                      'assets/images/psychology.png',
+                    ),
                     width: 200,
                     height: 200,
                   ),
@@ -51,7 +53,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     'Self Heal App',
                     style: Utils.mediumTextStyle.copyWith(
-                        color: Theme.of(context).colorScheme.onBackground),
+                        color:
+                            Theme.of(context).colorScheme.onPrimaryContainer),
                   ),
                   Spacer(
                     flex: 2,
@@ -69,6 +72,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                         QuestionScreen(),
                                     transitionsBuilder: (context, animation,
                                         secondaryAnimation, child) {
+                                      final offsetTween = Tween(
+                                              begin: Offset(1.0, 0.0),
+                                              end: Offset.zero)
+                                          .chain(
+                                              CurveTween(curve: Curves.easeIn));
                                       final offsetAnimation =
                                           animation.drive(offsetTween);
                                       return TweenAnimationBuilder(
