@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/demo_data.dart';
 import 'dashed_border_container.dart';
 
 class StepThree extends StatefulWidget {
@@ -10,11 +11,6 @@ class StepThree extends StatefulWidget {
 }
 
 class _StepThreeState extends State<StepThree> {
-  List<String> sex = ['Male', 'Female', 'Other'];
-  List<String> hobby = ['SciFi', 'Camping', 'Footbal', 'Gaming', 'Singing'];
-  String selectedSex = 'Male';
-  String selectedHobby = 'SciFi';
-
   TextEditingController ageController = TextEditingController();
   TextEditingController educationController = TextEditingController();
   TextEditingController jobController = TextEditingController();

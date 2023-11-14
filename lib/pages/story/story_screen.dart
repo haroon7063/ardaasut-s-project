@@ -1,4 +1,5 @@
 import 'package:fiverr_project_ardaasut/utils/constants.dart';
+import 'package:fiverr_project_ardaasut/utils/demo_data.dart';
 import 'package:flutter/material.dart';
 
 class StoryScreen extends StatefulWidget {
@@ -62,18 +63,7 @@ class _StoryScreenState extends State<StoryScreen> {
               decoration: BoxDecoration(
                   color: Utils.backgroundColor,
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 1,
-                        offset: Offset(-1, -1),
-                        color: Colors.grey),
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 3,
-                        offset: Offset(1, 1),
-                        color: Color(0xff14141d))
-                  ]),
+                  boxShadow: Utils.myBoxShadow),
               child: Scrollbar(
                 thickness: 3.0,
                 thumbVisibility: true,
@@ -81,7 +71,7 @@ class _StoryScreenState extends State<StoryScreen> {
                 child: ListView(
                   children: const [
                     Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                      story,
                       style: TextStyle(
                         fontFamily: 'Rubik_Medium',
                       ),
@@ -105,18 +95,7 @@ class _StoryScreenState extends State<StoryScreen> {
               decoration: BoxDecoration(
                   color: Utils.backgroundColor,
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 1,
-                        offset: Offset(-1, -1),
-                        color: Colors.grey),
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 3,
-                        offset: Offset(1, 1),
-                        color: Color(0xff14141d))
-                  ]),
+                  boxShadow: Utils.myBoxShadow),
               child: const Column(
                 children: [
                   Align(

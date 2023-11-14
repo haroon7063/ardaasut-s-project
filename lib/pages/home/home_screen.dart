@@ -3,6 +3,8 @@ import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../utils/demo_data.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -14,17 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   final now = DateTime.now();
   final format = DateFormat.d(); // Date format
   final dayFormat = DateFormat.E(); // Date format
-
-  List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  List<DateTime> dates = [];
-
-  List<String> data = [
-    'Why cant you focus on your work?',
-    'Would you like to go for a walk?',
-    'Top 50 Tips to get Rich,  Read Article. ',
-    'Why cant you focus on your work?',
-    'Top 50 Tips to get Rich,  Read Article. '
-  ];
 
   @override
   void initState() {
@@ -56,18 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: const BoxDecoration(
                       color: Utils.backgroundColor,
                       shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 3,
-                            spreadRadius: 1,
-                            offset: Offset(-1, -1),
-                            color: Colors.grey),
-                        BoxShadow(
-                            blurRadius: 3,
-                            spreadRadius: 3,
-                            offset: Offset(1, 1),
-                            color: Color(0xff14141d))
-                      ]),
+                      boxShadow: Utils.myBoxShadow),
                   child: const Icon(Icons.person_3_outlined),
                 ),
               ),
@@ -140,18 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Utils.backgroundColor,
-                  boxShadow: const [
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 1,
-                        offset: Offset(-1, -1),
-                        color: Colors.grey),
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 3,
-                        offset: Offset(1, 1),
-                        color: Color(0xff14141d))
-                  ]),
+                  boxShadow: Utils.myBoxShadow),
               child: const Text(
                 'Become a Billionaire',
                 style: TextStyle(fontSize: 25, fontFamily: 'Rubik_Regular'),
@@ -171,18 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                   color: const Color(0xff2f3438),
                   borderRadius: BorderRadius.circular(30),
-                  boxShadow: const [
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 1,
-                        offset: Offset(-1, -1),
-                        color: Colors.grey),
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 3,
-                        offset: Offset(1, 1),
-                        color: Color(0xff14141d))
-                  ]),
+                  boxShadow: Utils.myBoxShadow),
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
@@ -324,18 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                   color: const Color(0xff2f3438),
                   borderRadius: BorderRadius.circular(30),
-                  boxShadow: const [
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 1,
-                        offset: Offset(-1, -1),
-                        color: Colors.grey),
-                    BoxShadow(
-                        blurRadius: 3,
-                        spreadRadius: 3,
-                        offset: Offset(1, 1),
-                        color: Color(0xff14141d))
-                  ]),
+                  boxShadow: Utils.myBoxShadow),
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [

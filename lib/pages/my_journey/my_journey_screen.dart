@@ -2,6 +2,8 @@ import 'package:fiverr_project_ardaasut/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../utils/demo_data.dart';
+
 class MyJourneyScreen extends StatefulWidget {
   const MyJourneyScreen({super.key});
 
@@ -14,8 +16,6 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
   final format = DateFormat.d(); // Date format
   final dayFormat = DateFormat.E(); // Date format
 
-  List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  List<DateTime> dates = [];
   int _index = 0;
   bool checkValue = false;
   static List<bool> _completed = [false, false, false, false];
@@ -89,20 +89,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                   decoration: BoxDecoration(
                       color: Utils.backgroundColor,
                       borderRadius: BorderRadius.circular(10),
-                      boxShadow: dates[index] == now
-                          ? [
-                              const BoxShadow(
-                                  blurRadius: 3,
-                                  spreadRadius: 1,
-                                  offset: Offset(-1, -1),
-                                  color: Colors.grey),
-                              const BoxShadow(
-                                  blurRadius: 3,
-                                  spreadRadius: 3,
-                                  offset: Offset(1, 1),
-                                  color: Color(0xff14141d))
-                            ]
-                          : []),
+                      boxShadow: dates[index] == now ? Utils.myBoxShadow : []),
                   child: Column(
                     children: [
                       Text(
@@ -177,18 +164,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                             topRight: Radius.circular(20),
                             bottomRight: Radius.circular(20),
                             bottomLeft: Radius.circular(20)),
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 3,
-                              spreadRadius: 1,
-                              offset: Offset(-1, -1),
-                              color: Colors.grey),
-                          BoxShadow(
-                              blurRadius: 3,
-                              spreadRadius: 3,
-                              offset: Offset(1, 1),
-                              color: Color(0xff14141d))
-                        ]),
+                        boxShadow: Utils.myBoxShadow),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -249,22 +225,15 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                             topRight: Radius.circular(20),
                             bottomRight: Radius.circular(20),
                             bottomLeft: Radius.circular(20)),
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 3,
-                              spreadRadius: 1,
-                              offset: Offset(-1, -1),
-                              color: Colors.grey),
-                          BoxShadow(
-                              blurRadius: 3,
-                              spreadRadius: 3,
-                              offset: Offset(1, 1),
-                              color: Color(0xff14141d))
-                        ]),
+                        boxShadow: Utils.myBoxShadow),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(20))),
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Text(
@@ -273,11 +242,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                                     color: Colors.black87,
                                     fontFamily: 'Rubik_Regular'),
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(20)))),
+                            )),
                         const SizedBox(
                           height: 10,
                         ),
@@ -337,6 +302,10 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(20))),
                             child: Padding(
                               padding: EdgeInsets.all(8.0),
                               child: Text(
@@ -345,11 +314,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                                     color: Colors.black87,
                                     fontFamily: 'Rubik_Regular'),
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(20)))),
+                            )),
                         const SizedBox(
                           height: 10,
                         ),
@@ -393,18 +358,7 @@ class _MyJourneyScreenState extends State<MyJourneyScreen> {
                             topRight: Radius.circular(20),
                             bottomRight: Radius.circular(20),
                             bottomLeft: Radius.circular(20)),
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 3,
-                              spreadRadius: 1,
-                              offset: Offset(-1, -1),
-                              color: Colors.grey),
-                          BoxShadow(
-                              blurRadius: 3,
-                              spreadRadius: 3,
-                              offset: Offset(1, 1),
-                              color: Color(0xff14141d))
-                        ]),
+                        boxShadow: Utils.myBoxShadow),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

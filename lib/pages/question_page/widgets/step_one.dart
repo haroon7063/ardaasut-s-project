@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/demo_data.dart';
 import 'dashed_border_container.dart';
 
 class StepOne extends StatefulWidget {
@@ -22,8 +23,6 @@ class _StepOneState extends State<StepOne> {
   TextEditingController answerController = TextEditingController();
   TextEditingController answerController2 = TextEditingController();
   TextEditingController answerController3 = TextEditingController();
-  List<String> moods = ['Happy', 'Sad', 'Excited', 'Calm', 'Angry'];
-  String selectedMood = 'Happy';
 
   @override
   Widget build(BuildContext context) {

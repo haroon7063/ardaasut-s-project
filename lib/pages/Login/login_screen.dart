@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../question_page/question_page.dart';
+import '../question_page/question_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key});
@@ -78,10 +78,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     children: [
                       SvgPicture.asset('assets/images/google.svg'),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
-                      Text(
+                      const Text(
                         'Sign In with Google',
                         style: TextStyle(
                             fontFamily: 'Rubik_Medium', color: Colors.black),
